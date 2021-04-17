@@ -1,4 +1,6 @@
 rootProject.name = 'JavaHeighten'
 include 'generics'
 include 'annotation'
+include 'apt-annotation'
+include 'apt-processor'
 

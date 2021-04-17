@@ -8,8 +8,6 @@ com/xxd/annotation/retention/domain/RuntimeRetention.java
  com.xxd.annotation.retention.domain.RuntimeRetention
 com/xxd/annotation/retention/RetentionTest.java
  com.xxd.annotation.retention.RetentionTest
-module-info.java
- module-info
 com/xxd/annotation/target/TargetClass.java
  com.xxd.annotation.target.TargetClass
 com/xxd/annotation/target/domain/LocalVariableAnnotation.java

@@ -1,0 +1,2 @@
+com/xxd/apt/processor/MyProcessor.java
+ com.xxd.apt.processor.MyProcessor
