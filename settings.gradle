@@ -1,2 +1,4 @@
 rootProject.name = 'JavaHeighten'
+include 'generics'
+include 'annotation'
 

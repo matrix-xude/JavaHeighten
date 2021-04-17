@@ -1,0 +1,52 @@
+com/xxd/annotation/target/TargetEnum.java
+ com.xxd.annotation.target.TargetEnum
+com/xxd/annotation/basic/MyAnnotation.java
+ com.xxd.annotation.basic.MyAnnotation
+com/xxd/annotation/target/TargetAnnotation.java
+ com.xxd.annotation.target.TargetAnnotation
+com/xxd/annotation/retention/domain/RuntimeRetention.java
+ com.xxd.annotation.retention.domain.RuntimeRetention
+com/xxd/annotation/retention/RetentionTest.java
+ com.xxd.annotation.retention.RetentionTest
+module-info.java
+ module-info
+com/xxd/annotation/target/TargetClass.java
+ com.xxd.annotation.target.TargetClass
+com/xxd/annotation/target/domain/LocalVariableAnnotation.java
+ com.xxd.annotation.target.domain.LocalVariableAnnotation
+com/xxd/annotation/target/TargetInterface.java
+ com.xxd.annotation.target.TargetInterface
+com/xxd/annotation/target/domain/NoTargetAnnotation.java
+ com.xxd.annotation.target.domain.NoTargetAnnotation
+com/xxd/annotation/target/domain/FieldAnnotation.java
+ com.xxd.annotation.target.domain.FieldAnnotation
+com/xxd/annotation/target/domain/AnnotationTypeAnnotation.java
+ com.xxd.annotation.target.domain.AnnotationTypeAnnotation
+com/xxd/annotation/target/domain/ParameterAnnotation.java
+ com.xxd.annotation.target.domain.ParameterAnnotation
+com/xxd/annotation/basic/UseAnnotation.java
+ com.xxd.annotation.basic.UseAnnotation
+com/xxd/annotation/target/package-info.java
+ com.xxd.annotation.target.package-info
+com/xxd/annotation/target/domain/TypeParameterAnnotation.java
+ com.xxd.annotation.target.domain.TypeParameterAnnotation
+com/xxd/annotation/target/domain/PackageAnnotation.java
+ com.xxd.annotation.target.domain.PackageAnnotation
+com/xxd/annotation/target/domain/ConstructorAnnotation.java
+ com.xxd.annotation.target.domain.ConstructorAnnotation
+com/xxd/annotation/retention/domain/NoRetention.java
+ com.xxd.annotation.retention.domain.NoRetention
+com/xxd/annotation/target/domain/TypeAnnotation.java
+ com.xxd.annotation.target.domain.TypeAnnotation
+com/xxd/annotation/retention/domain/SourceRetention.java
+ com.xxd.annotation.retention.domain.SourceRetention
+com/xxd/annotation/target/domain/MethodAnnotation.java
+ com.xxd.annotation.target.domain.MethodAnnotation
+com/xxd/annotation/target/domain/TypeUseAnnotation.java
+ com.xxd.annotation.target.domain.TypeUseAnnotation
+com/xxd/annotation/apt/AptTest.java
+ com.xxd.annotation.apt.AptTest
+com/xxd/annotation/target/domain/ModuleAnnotation.java
+ com.xxd.annotation.target.domain.ModuleAnnotation
+com/xxd/annotation/retention/domain/ClassRetention.java
+ com.xxd.annotation.retention.domain.ClassRetention

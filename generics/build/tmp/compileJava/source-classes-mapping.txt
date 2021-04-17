@@ -1,0 +1,41 @@
+com/xxd/generics/wildcards/domain/Apple.java
+ com.xxd.generics.wildcards.domain.Apple
+com/xxd/generics/wildcards/domain/Food.java
+ com.xxd.generics.wildcards.domain.Food
+com/xxd/generics/basic/Client.java
+ com.xxd.generics.basic.Client
+ com.xxd.generics.basic.Client$MethodParam
+com/xxd/generics/wildcards/domain/Fruit.java
+ com.xxd.generics.wildcards.domain.Fruit
+com/xxd/generics/type/SignatureSon.java
+ com.xxd.generics.type.SignatureSon
+com/xxd/generics/assence/GenericsIsRuntime.java
+ com.xxd.generics.assence.GenericsIsRuntime
+com/xxd/generics/type/TypeField.java
+ com.xxd.generics.type.TypeField
+com/xxd/generics/assence/BytecodeA.java
+ com.xxd.generics.assence.BytecodeA
+com/xxd/generics/assence/BridgeFather.java
+ com.xxd.generics.assence.BridgeFather
+com/xxd/generics/wildcards/domain/Banana.java
+ com.xxd.generics.wildcards.domain.Banana
+com/xxd/generics/type/TypeTop.java
+ com.xxd.generics.type.TypeTop
+com/xxd/generics/wildcards/WildcardsEffect.java
+ com.xxd.generics.wildcards.WildcardsEffect
+com/xxd/generics/basic/NumberConsumer.java
+ com.xxd.generics.basic.NumberConsumer
+com/xxd/generics/type/TypeTest.java
+ com.xxd.generics.type.TypeTest
+com/xxd/generics/basic/IConsumer.java
+ com.xxd.generics.basic.IConsumer
+com/xxd/generics/wildcards/domain/Plate.java
+ com.xxd.generics.wildcards.domain.Plate
+com/xxd/generics/wildcards/GenericsExtendsTest.java
+ com.xxd.generics.wildcards.GenericsExtendsTest
+com/xxd/generics/type/SignatureFather.java
+ com.xxd.generics.type.SignatureFather
+com/xxd/generics/wildcards/WildcardsUse.java
+ com.xxd.generics.wildcards.WildcardsUse
+com/xxd/generics/assence/BridgeSon.java
+ com.xxd.generics.assence.BridgeSon
