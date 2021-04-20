@@ -1,4 +1,4 @@
-package com.xxd.reflect.basic.domain;
+package basic.domain;
 
 import java.lang.annotation.*;
 

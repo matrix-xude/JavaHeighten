@@ -1,7 +1,7 @@
-package com.xxd.reflect.basic.entity;
+package basic.entity;
 
-import com.xxd.reflect.basic.domain.DescObtain;
-import com.xxd.reflect.basic.domain.IntObtain;
+import basic.domain.DescObtain;
+import basic.domain.IntObtain;
 
 @DescObtain(desc = "父类的类上")
 public class ReflectBaseEntity {

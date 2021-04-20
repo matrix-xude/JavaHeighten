@@ -1,9 +1,8 @@
-package com.xxd.reflect.basic.utils;
+package basic.utils;
 
-import com.xxd.reflect.basic.FieldTest;
-import com.xxd.reflect.basic.domain.DescObtain;
-import com.xxd.reflect.basic.domain.DoubleObtain;
-import com.xxd.reflect.basic.domain.IntObtain;
+import basic.domain.DescObtain;
+import basic.domain.DoubleObtain;
+import basic.domain.IntObtain;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.*;
