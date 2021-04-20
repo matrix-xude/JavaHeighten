@@ -62,7 +62,7 @@ public class TargetClass
             @NoTargetAnnotation @ParameterAnnotation @TypeUseAnnotation T t,
             @NoTargetAnnotation @ParameterAnnotation @TypeUseAnnotation TargetInterface
                     // 连泛型限定 ？ 前都可以加1个
-                    <@TypeUseAnnotation ? extends @TypeUseAnnotation K> target1) {
+                    <@TypeUseAnnotation  ? extends @TypeUseAnnotation K @TypeUseAnnotation []> target1) {
 
         // 局部变量前可以使用3个
         @NoTargetAnnotation

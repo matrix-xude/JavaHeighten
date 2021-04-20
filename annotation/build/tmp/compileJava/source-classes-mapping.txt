@@ -10,6 +10,8 @@ com/xxd/annotation/retention/RetentionTest.java
  com.xxd.annotation.retention.RetentionTest
 com/xxd/annotation/target/TargetClass.java
  com.xxd.annotation.target.TargetClass
+com/xxd/annotation/reflect/ReflectAnnotation.java
+ com.xxd.annotation.reflect.ReflectAnnotation
 com/xxd/annotation/target/domain/LocalVariableAnnotation.java
  com.xxd.annotation.target.domain.LocalVariableAnnotation
 com/xxd/annotation/target/TargetInterface.java
@@ -46,5 +48,7 @@ com/xxd/annotation/apt/AptTest.java
  com.xxd.annotation.apt.AptTest
 com/xxd/annotation/target/domain/ModuleAnnotation.java
  com.xxd.annotation.target.domain.ModuleAnnotation
+com/xxd/annotation/reflect/RuntimeAnnotationTest.java
+ com.xxd.annotation.reflect.RuntimeAnnotationTest
 com/xxd/annotation/retention/domain/ClassRetention.java
  com.xxd.annotation.retention.domain.ClassRetention

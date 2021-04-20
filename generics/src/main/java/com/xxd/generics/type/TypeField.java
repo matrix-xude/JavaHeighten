@@ -9,7 +9,8 @@ public class TypeField<T> {
 
     private int i;
     private T t;
-    private List list1;
+    private String[] strings;
+    private List<String> list1;
     private List<T> list2;
     private T[] arr;
     private TypeTop<T, String> typeTop;

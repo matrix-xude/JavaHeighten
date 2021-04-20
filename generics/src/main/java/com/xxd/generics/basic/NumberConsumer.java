@@ -1,6 +1,8 @@
 package com.xxd.generics.basic;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 泛型的3处用法之二：类

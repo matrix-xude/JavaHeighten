@@ -5,18 +5,16 @@ com/xxd/generics/wildcards/domain/Food.java
 com/xxd/generics/basic/Client.java
  com.xxd.generics.basic.Client
  com.xxd.generics.basic.Client$MethodParam
+com/xxd/generics/essence/BytecodeA.java
+ com.xxd.generics.essence.BytecodeA
 com/xxd/generics/wildcards/domain/Fruit.java
  com.xxd.generics.wildcards.domain.Fruit
 com/xxd/generics/type/SignatureSon.java
  com.xxd.generics.type.SignatureSon
-com/xxd/generics/assence/GenericsIsRuntime.java
- com.xxd.generics.assence.GenericsIsRuntime
 com/xxd/generics/type/TypeField.java
  com.xxd.generics.type.TypeField
-com/xxd/generics/assence/BytecodeA.java
- com.xxd.generics.assence.BytecodeA
-com/xxd/generics/assence/BridgeFather.java
- com.xxd.generics.assence.BridgeFather
+com/xxd/generics/essence/GenericsIsRuntime.java
+ com.xxd.generics.essence.GenericsIsRuntime
 com/xxd/generics/wildcards/domain/Banana.java
  com.xxd.generics.wildcards.domain.Banana
 com/xxd/generics/type/TypeTop.java
@@ -25,6 +23,8 @@ com/xxd/generics/wildcards/WildcardsEffect.java
  com.xxd.generics.wildcards.WildcardsEffect
 com/xxd/generics/basic/NumberConsumer.java
  com.xxd.generics.basic.NumberConsumer
+com/xxd/generics/essence/BridgeSon.java
+ com.xxd.generics.essence.BridgeSon
 com/xxd/generics/type/TypeTest.java
  com.xxd.generics.type.TypeTest
 com/xxd/generics/basic/IConsumer.java
@@ -37,5 +37,5 @@ com/xxd/generics/type/SignatureFather.java
  com.xxd.generics.type.SignatureFather
 com/xxd/generics/wildcards/WildcardsUse.java
  com.xxd.generics.wildcards.WildcardsUse
-com/xxd/generics/assence/BridgeSon.java
- com.xxd.generics.assence.BridgeSon
+com/xxd/generics/essence/BridgeFather.java
+ com.xxd.generics.essence.BridgeFather

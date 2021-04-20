@@ -3,4 +3,5 @@ include 'generics'
 include 'annotation'
 include 'apt-annotation'
 include 'apt-processor'
+include 'reflect'
 

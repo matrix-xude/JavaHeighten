@@ -1,4 +1,4 @@
-package com.xxd.generics.assence;
+package com.xxd.generics.essence;
 
 import java.util.LinkedList;
 import java.util.List;
