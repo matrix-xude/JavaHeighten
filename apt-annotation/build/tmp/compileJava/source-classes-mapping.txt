@@ -1,2 +1,0 @@
-com/xxd/apt/annotation/AptAnnotation.java
- com.xxd.apt.annotation.AptAnnotation
