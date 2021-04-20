@@ -1,10 +1,12 @@
 package com.xxd.reflect.basic.utils;
 
+import com.xxd.reflect.basic.FieldTest;
 import com.xxd.reflect.basic.domain.DescObtain;
 import com.xxd.reflect.basic.domain.DoubleObtain;
 import com.xxd.reflect.basic.domain.IntObtain;
 
 import java.lang.annotation.Annotation;
+import java.lang.reflect.*;
 import java.util.Arrays;
 
 /**
@@ -40,5 +42,58 @@ public class PrintUtil {
             }
         });
         System.out.println("----------------------------------------------------");
+    }
+
+    /**
+     * 打印AnnotatedType类的信息
+     * @param annotatedType
+     */
+    public static void printAnnotatedType(AnnotatedType annotatedType) {
+        String format = "当前类型是：%s -> %s";
+        if (annotatedType == null) {
+            String info = String.format(format, "null", "");
+            PrintUtil.printOneLine(info);
+            return;
+        }
+        if (annotatedType instanceof AnnotatedParameterizedType) {
+            AnnotatedParameterizedType type = (AnnotatedParameterizedType) annotatedType;
+            String info = String.format(format, "AnnotatedParameterizedType", type);
+            printTypeInfo(annotatedType, info);
+            AnnotatedType[] arguments = type.getAnnotatedActualTypeArguments();
+            Arrays.stream(arguments).forEach(PrintUtil::printAnnotatedType);
+        } else if (annotatedType instanceof AnnotatedTypeVariable) {
+            AnnotatedTypeVariable type = (AnnotatedTypeVariable) annotatedType;
+            String info = String.format(format, "AnnotatedTypeVariable", type);
+            printTypeInfo(annotatedType, info);
+            AnnotatedType[] arguments = type.getAnnotatedBounds();
+            Arrays.stream(arguments).forEach(PrintUtil::printAnnotatedType);
+        } else if (annotatedType instanceof AnnotatedArrayType) {
+            AnnotatedArrayType type = (AnnotatedArrayType) annotatedType;
+            String info = String.format(format, "AnnotatedArrayType", type);
+            printTypeInfo(annotatedType, info);
+            AnnotatedType arguments = type.getAnnotatedGenericComponentType();
+            printAnnotatedType(arguments);
+        } else if (annotatedType instanceof AnnotatedWildcardType) {
+            AnnotatedWildcardType type = (AnnotatedWildcardType) annotatedType;
+            String info = String.format(format, "AnnotatedWildcardType", type);
+            printTypeInfo(annotatedType, info);
+            AnnotatedType[] arguments = type.getAnnotatedLowerBounds();
+            AnnotatedType[] arguments2 = type.getAnnotatedUpperBounds();
+            Arrays.stream(arguments).forEach(PrintUtil::printAnnotatedType);
+            Arrays.stream(arguments2).forEach(PrintUtil::printAnnotatedType);
+        } else {
+            String info = String.format(format, "未知类型", annotatedType);
+            printTypeInfo(annotatedType, info);
+        }
+
+    }
+
+    private static void printTypeInfo(AnnotatedType annotatedType, String info) {
+        PrintUtil.printOneLine(info);
+        Annotation[] annotations = annotatedType.getAnnotations();
+        String str = String.format("当前上面的注解有： %s", Arrays.toString(annotations));
+        PrintUtil.printOneLine(str);
+        Type typeInfo = annotatedType.getType();
+        PrintUtil.printOneLine("当前getType()类型： "+typeInfo.getTypeName());
     }
 }

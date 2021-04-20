@@ -103,12 +103,12 @@ public class ClassTest {
 
 
             String formatStr = "%s -> %s (%s) : %s";
-            String info1 = String.format(formatStr, "TypeVariable<? extends Class<?>>", "getName", "()", name);
-            String info2 = String.format(formatStr, "TypeVariable<? extends Class<?>>", "getBounds", "()", Arrays.toString(bounds));
-            String info3 = String.format(formatStr, "TypeVariable<? extends Class<?>>", "getGenericDeclaration", "()", genericDeclaration);
+            String info1 = String.format(formatStr, "TypeVariable<? extends Class<?>>", "getName", "", name);
+            String info2 = String.format(formatStr, "TypeVariable<? extends Class<?>>", "getBounds", "", Arrays.toString(bounds));
+            String info3 = String.format(formatStr, "TypeVariable<? extends Class<?>>", "getGenericDeclaration", "", genericDeclaration);
             // 类型参数 获取到的 泛型类型 （D extends GenericDeclaration） 其实就是 aClass 自身
-            String info4 = String.format(formatStr, "Class<?>", "equals", "(Class<?>)", equals);
-            String info5 = String.format(formatStr, "TypeVariable<? extends Class<?>>", "getDeclaredAnnotations", "(Class<?>)", Arrays.toString(declaredAnnotations));
+            String info4 = String.format(formatStr, "Class<?>", "equals", "Class<?>", equals);
+            String info5 = String.format(formatStr, "TypeVariable<? extends Class<?>>", "getDeclaredAnnotations", "Class<?>", Arrays.toString(declaredAnnotations));
 
             PrintUtil.printInfos(info1, info2, info3, info4, info5);
         });

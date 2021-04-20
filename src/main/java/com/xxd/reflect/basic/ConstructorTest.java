@@ -8,6 +8,8 @@ import com.xxd.reflect.basic.utils.PrintUtil;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.lang.reflect.Type;
+import java.lang.reflect.TypeVariable;
 import java.util.Arrays;
 
 /**
@@ -21,10 +23,11 @@ public class ConstructorTest {
         Constructor<?>[] declaredConstructors = entity.getClass().getDeclaredConstructors();
         Arrays.stream(declaredConstructors).forEach( constructor -> {
             int parameterCount = constructor.getParameterCount();
-            if (parameterCount == 3){
-                analysisMember(constructor);
-                analysisAnnotationElement(constructor);
-                analysisAccessibleObject(constructor);
+            if (parameterCount == 2){
+//                analysisMember(constructor);
+//                analysisAnnotationElement(constructor);
+//                analysisAccessibleObject(constructor);
+                analysisGenericDeclaration(constructor);
             }
         });
     }
@@ -101,6 +104,32 @@ public class ConstructorTest {
         String info3 = String.format(formatStr, "Constructor", "canAccess", "ReflectEntity<?>", c2);
 
         PrintUtil.printInfos(info1,info2,info3);
+    }
+
+    // 分析 GenericDeclaration 接口
+    private static void analysisGenericDeclaration(Constructor<?> constructor) {
+        TypeVariable<? extends Constructor<?>>[] typeParameters = constructor.getTypeParameters();
+        String info = String.format("Constructor -> getTypeParameters() : %s", Arrays.toString(typeParameters));
+        PrintUtil.printInfos(info);
+        Arrays.stream(typeParameters).forEach(typeVariable -> {
+            String name = typeVariable.getName();
+            Type[] bounds = typeVariable.getBounds();
+            Constructor<?> genericDeclaration = typeVariable.getGenericDeclaration();
+            boolean equals = genericDeclaration.equals(constructor);
+            // 测试 TypeVariable 能否获取到常规注解: 结论 可以获取到注解
+            Annotation[] declaredAnnotations = typeVariable.getDeclaredAnnotations();
+
+
+            String formatStr = "%s -> %s (%s) : %s";
+            String info1 = String.format(formatStr, "TypeVariable<? extends Class<?>>", "getName", "", name);
+            String info2 = String.format(formatStr, "TypeVariable<? extends Class<?>>", "getBounds", "", Arrays.toString(bounds));
+            String info3 = String.format(formatStr, "TypeVariable<? extends Class<?>>", "getGenericDeclaration", "", genericDeclaration);
+            // 类型参数 获取到的 泛型类型 （D extends GenericDeclaration） 其实就是 constructor 自身
+            String info4 = String.format(formatStr, "Class<?>", "equals", "Class<?>", equals);
+            String info5 = String.format(formatStr, "TypeVariable<? extends Class<?>>", "getDeclaredAnnotations", "Constructor<?>", Arrays.toString(declaredAnnotations));
+
+            PrintUtil.printInfos(info1, info2, info3, info4, info5);
+        });
     }
 
 

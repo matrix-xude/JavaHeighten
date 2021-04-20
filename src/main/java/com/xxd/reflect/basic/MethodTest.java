@@ -6,8 +6,7 @@ import com.xxd.reflect.basic.entity.ReflectEntity;
 import com.xxd.reflect.basic.utils.PrintUtil;
 
 import java.lang.annotation.Annotation;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
+import java.lang.reflect.*;
 import java.util.Arrays;
 
 /**
@@ -16,15 +15,16 @@ import java.util.Arrays;
 public class MethodTest {
 
 
-    public static void main(String[] args)  {
+    public static void main(String[] args) {
         ReflectEntity<String> entity = new ReflectEntity<>();
         Method[] declaredMethods = entity.getClass().getDeclaredMethods();
         Arrays.stream(declaredMethods).forEach(method -> {
-            PrintUtil.printOneLine(method.getName());
-            if (method.getName().equals("getMiddle")) {
-                analysisMember(method);
-                analysisAnnotationElement(method);
-                analysisAccessibleObject(method);
+//            PrintUtil.printOneLine(method.getName());
+            if (method.getName().equals("test")) {
+//                analysisMember(method);
+//                analysisAnnotationElement(method);
+//                analysisAccessibleObject(method);
+                annotatedClass(method);
             }
         });
     }
@@ -101,6 +101,38 @@ public class MethodTest {
         String info3 = String.format(formatStr, "Method", "canAccess", "ReflectEntity<?>", c2);
 
         PrintUtil.printInfos(info1, info2, info3);
+    }
+
+    // 分析 GenericDeclaration 接口
+    private static void analysisGenericDeclaration(Method method) {
+        // 与Constructor的 GenericDeclaration 接口分析相同，不再举例
+    }
+
+    private static void annotatedClass(Method method) {
+        // 打印普通注解 结论：找不到 ElementType.TYPE_USE 类型的注解
+        Annotation[][] parameterAnnotations = method.getParameterAnnotations();
+        Arrays.stream(parameterAnnotations).forEach(annotations -> PrintUtil.printOneLine(Arrays.toString(annotations)));
+
+        // AnnotatedType类找不到 非ElementType.TYPE_USE 注解
+        AnnotatedType[] annotatedParameterTypes = method.getAnnotatedParameterTypes();
+        Arrays.stream(annotatedParameterTypes)
+                .filter(annotatedType -> annotatedType.getAnnotations().length <= 4)
+                .forEach(MethodTest::analysisAnnotatedType);
+
+//         getAnnotatedReceiverType() 方法到底做了什么，返回了该方法所在的类,static方法返回null
+        AnnotatedType annotatedReceiverType = method.getAnnotatedReceiverType();
+        if (annotatedReceiverType != null)
+            analysisAnnotatedType(annotatedReceiverType);
+    }
+
+    // 分析 AnnotatedType 接口下的4种类型对应
+    private static void analysisAnnotatedType(AnnotatedType annotatedType) {
+        // 是否有外部内
+        AnnotatedType annotatedOwnerType = annotatedType.getAnnotatedOwnerType();
+        PrintUtil.printOneLine("是否有外部类型 : " + (annotatedOwnerType != null));
+        PrintUtil.printAnnotatedType(annotatedType);
+        PrintUtil.printOneLine("-----------------------------------------------------");
+
     }
 
 

@@ -6,7 +6,7 @@ import com.xxd.reflect.basic.entity.ReflectEntity;
 import com.xxd.reflect.basic.utils.PrintUtil;
 
 import java.lang.annotation.Annotation;
-import java.lang.reflect.Field;
+import java.lang.reflect.*;
 import java.util.Arrays;
 
 /**
@@ -17,10 +17,12 @@ public class FieldTest {
 
     public static void main(String[] args) throws NoSuchFieldException {
         ReflectEntity<String> entity = new ReflectEntity<>();
-        Field field = entity.getClass().getDeclaredField("list");
+        Field field = entity.getClass().getDeclaredField("t");
 //        analysisMember(field);
 //        analysisAnnotationElement(field);
-        analysisAccessibleObject(field);
+//        analysisAccessibleObject(field);
+//        analysisGenericDeclaration(field,entity.getClass());
+        annotatedClass(entity.getClass());
     }
 
     // 分析Member接口的方法
@@ -76,7 +78,7 @@ public class FieldTest {
     }
 
     // 分析AccessibleObject类的方法
-    private static void analysisAccessibleObject(Field field){
+    private static void analysisAccessibleObject(Field field) {
 
         field.setAccessible(false);
         boolean accessible = field.isAccessible();
@@ -94,8 +96,57 @@ public class FieldTest {
         //  String info3 = String.format(formatStr, "Field", "canAccess", "String", c1);
         String info3 = String.format(formatStr, "Field", "canAccess", "ReflectEntity<?>", c2);
 
-        PrintUtil.printInfos(info1,info2,info3);
+        PrintUtil.printInfos(info1, info2, info3);
     }
+
+    // Field 没有 GenericDeclaration 接口，此处分析一下泛型T定义的位置
+    private static void analysisGenericDeclaration(Field field, Class<?> aClass) {
+        Type genericType = field.getGenericType();
+        // 测试字段能否获取到字段前面的Type_Use泛型 结论：不能获取到
+        Annotation[] declaredAnnotations1 = field.getAnnotations();
+        String info = String.format("%s -> %s (%s) : %s", "Field", "getDeclaredAnnotations", "", Arrays.toString(declaredAnnotations1));
+        PrintUtil.printInfos(info);
+        if (genericType instanceof TypeVariable) {
+            TypeVariable typeVariable = (TypeVariable<?>) genericType;
+            String name = typeVariable.getName();
+            Type[] bounds = typeVariable.getBounds();
+            GenericDeclaration genericDeclaration = typeVariable.getGenericDeclaration();
+            boolean equals = genericDeclaration.equals(aClass);
+            // 测试 TypeVariable 能否获取到常规注解: 结论 可以获取到注解 (这里拿到的是T注册时的注解，而不是 type_user 类型的注解)
+            Annotation[] declaredAnnotations = typeVariable.getDeclaredAnnotations();
+
+
+            String formatStr = "%s -> %s (%s) : %s";
+            String info1 = String.format(formatStr, "TypeVariable<? extends Class<?>>", "getName", "", name);
+            String info2 = String.format(formatStr, "TypeVariable<? extends Class<?>>", "getBounds", "", Arrays.toString(bounds));
+            String info3 = String.format(formatStr, "TypeVariable<? extends Class<?>>", "getGenericDeclaration", "", genericDeclaration);
+            // 类型参数 获取到的 泛型类型 （D extends GenericDeclaration） 其实就是 aClass 自身
+            String info4 = String.format(formatStr, "Class<?>", "equals", "Class<?>", equals);
+            String info5 = String.format(formatStr, "TypeVariable<? extends Class<?>>", "getDeclaredAnnotations", "", Arrays.toString(declaredAnnotations));
+
+            PrintUtil.printInfos(info1, info2, info3, info4, info5);
+        }
+    }
+
+    private static void annotatedClass(Class<? extends ReflectEntity> aClass) {
+        Field[] declaredFields = aClass.getDeclaredFields();
+        Arrays.stream(declaredFields)
+                .map(Field::getAnnotatedType)
+                .filter(annotatedType -> annotatedType.getAnnotations().length <= 4)
+                .forEach(FieldTest::analysisAnnotatedType);
+    }
+
+    // 分析 AnnotatedType 接口下的4种类型对应
+    private static void analysisAnnotatedType(AnnotatedType annotatedType) {
+        // 是否有外部内
+        AnnotatedType annotatedOwnerType = annotatedType.getAnnotatedOwnerType();
+        PrintUtil.printOneLine("是否有外部类型 : " + (annotatedOwnerType != null));
+        PrintUtil.printAnnotatedType(annotatedType);
+        PrintUtil.printOneLine("-----------------------------------------------------");
+
+    }
+
+
 
 
 }

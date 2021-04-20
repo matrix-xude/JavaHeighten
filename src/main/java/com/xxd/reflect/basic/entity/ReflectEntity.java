@@ -11,7 +11,7 @@ import java.util.List;
  */
 @IntObtain(3)
 @DescObtain(desc = "我是类上的")
-public class ReflectEntity<@DescObtain(desc = "装逼如风，常伴我身，T") @IntObtain(95533) T> extends ReflectBaseEntity implements Cloneable {
+public class ReflectEntity<@DescObtain(desc = "装逼如风，常伴我身，T") @IntObtain(95533) @DoubleObtain(-1.0) T> extends ReflectBaseEntity implements Cloneable {
 
     // 5个成员变量
     private int a;
@@ -21,7 +21,10 @@ public class ReflectEntity<@DescObtain(desc = "装逼如风，常伴我身，T")
     @IntObtain(52)
     @IntObtain(323)
     @DescObtain(desc = "葫芦娃")
-    private @DoubleObtain(1.1d) List<@DoubleObtain(1.2d) ? extends @DoubleObtain(1.2d) T> list;
+    private @DoubleObtain(1.1d) List<@DoubleObtain(1.2d) ? extends @DoubleObtain(1.3d) T> list;
+
+    private @DoubleObtain(1.1d) List<@DoubleObtain(1.2d) ? extends @DoubleObtain(1.3d) String> list2;
+
 
     // 以下来5个构造方法，方便测试构造
     public ReflectEntity() {
@@ -35,13 +38,12 @@ public class ReflectEntity<@DescObtain(desc = "装逼如风，常伴我身，T")
     }
 
     @IntObtain(1)
-    protected <U> ReflectEntity(T t, U u) {
+    protected <@DoubleObtain(3.3d) U extends Number> ReflectEntity(T t, U u) {
         this.t = t;
     }
 
     @IntObtain(2)
-    @DescObtain(desc = "wildcard is me , constructor")
-    ReflectEntity(List<? extends T> list) {
+    @DescObtain(desc = "wildcard is me , constructor") ReflectEntity(List<? extends T> list) {
         this.list = list;
     }
 
@@ -64,11 +66,14 @@ public class ReflectEntity<@DescObtain(desc = "装逼如风，常伴我身，T")
         return str.split(split);
     }
 
-    public <@DescObtain(desc = "我描述一个U形的磁铁？？") U> U getMiddle(@DescObtain(desc = "我是一个数值，是一个还是全部") U... us) {
-        return us[us.length / 2];
+    public <@DescObtain(desc = "我描述一个U形的磁铁？？") U> @DoubleObtain(2.71) U getMiddle(@DescObtain(desc = "134") @DoubleObtain(3.1) U u,
+                                                                                  @DescObtain(desc = "110") @DoubleObtain(3.14) String a, @IntObtain(1) int i) {
+        return u;
     }
 
     private void accept(@DescObtain(desc = "T一脚") T t) {
 
     }
+
+    public static void test(@IntObtain(110) @DoubleObtain(3.14) int a) { }
 }
