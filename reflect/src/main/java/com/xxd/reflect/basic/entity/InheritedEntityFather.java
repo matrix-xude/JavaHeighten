@@ -1,7 +1,7 @@
-package basic.entity;
+package com.xxd.reflect.basic.entity;
 
-import basic.domain.DescObtain;
-import basic.domain.IntObtain;
+import com.xxd.reflect.basic.domain.DescObtain;
+import com.xxd.reflect.basic.domain.IntObtain;
 
 @DescObtain(desc = "我是父类")
 @IntObtain(1)

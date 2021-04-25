@@ -4,7 +4,7 @@
 # Copyright 2015 the original author or authors.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
+# you may not com.xxd.reflect.use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
 #      https://www.apache.org/licenses/LICENSE-2.0
@@ -43,10 +43,10 @@ cd "$SAVED" >/dev/null
 APP_NAME="Gradle"
 APP_BASE_NAME=`basename "$0"`
 
-# Add default JVM options here. You can also use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.
+# Add default JVM options here. You can also com.xxd.reflect.use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.
 DEFAULT_JVM_OPTS='"-Xmx64m" "-Xms64m"'
 
-# Use the maximum available, or set MAX_FD != -1 to use that value.
+# Use the maximum available, or set MAX_FD != -1 to com.xxd.reflect.use that value.
 MAX_FD="maximum"
 
 warn () {
@@ -83,7 +83,7 @@ esac
 CLASSPATH=$APP_HOME/gradle/wrapper/gradle-wrapper.jar
 
 
-# Determine the Java command to use to start the JVM.
+# Determine the Java command to com.xxd.reflect.use to start the JVM.
 if [ -n "$JAVA_HOME" ] ; then
     if [ -x "$JAVA_HOME/jre/sh/java" ] ; then
         # IBM's JDK on AIX uses strange locations for the executables

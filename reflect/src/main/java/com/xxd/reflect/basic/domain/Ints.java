@@ -1,4 +1,4 @@
-package basic.domain;
+package com.xxd.reflect.basic.domain;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

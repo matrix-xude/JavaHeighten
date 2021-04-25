@@ -1,8 +1,8 @@
-package basic.entity;
+package com.xxd.reflect.basic.entity;
 
-import basic.domain.DescObtain;
-import basic.domain.DoubleObtain;
-import basic.domain.IntObtain;
+import com.xxd.reflect.basic.domain.DescObtain;
+import com.xxd.reflect.basic.domain.DoubleObtain;
+import com.xxd.reflect.basic.domain.IntObtain;
 
 import java.util.List;
 

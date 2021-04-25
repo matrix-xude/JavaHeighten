@@ -1,4 +1,4 @@
-package basic.entity;
+package com.xxd.reflect.basic.entity;
 
 
 public class InheritedEntitySon extends InheritedEntityFather implements InheritedInterface{

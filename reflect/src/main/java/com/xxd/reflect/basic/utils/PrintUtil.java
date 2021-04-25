@@ -1,8 +1,8 @@
-package basic.utils;
+package com.xxd.reflect.basic.utils;
 
-import basic.domain.DescObtain;
-import basic.domain.DoubleObtain;
-import basic.domain.IntObtain;
+import com.xxd.reflect.basic.domain.DescObtain;
+import com.xxd.reflect.basic.domain.DoubleObtain;
+import com.xxd.reflect.basic.domain.IntObtain;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.*;
@@ -22,7 +22,31 @@ public class PrintUtil {
         System.out.printf("%s\n", info);
     }
 
+    /**
+     * 打印Class信息
+     *
+     * @param aClass
+     */
+    public static void printClass(Class<?> aClass) {
+        if (aClass == null) {
+            printInfos("该Class为null");
+            return;
+        }
+        String format = "%s -> %s";
+        String info1 = String.format(format, "descriptorString()", aClass.descriptorString());
+        String info2 = String.format(format, "toString()", aClass.toString());
+        String info3 = String.format(format, "toGenericString()", aClass.toGenericString());
+        String info4 = String.format(format, "getCanonicalName()", aClass.getCanonicalName());
+        String info5 = String.format(format, "getName()", aClass.getName());
+        printInfos(info1, info2, info3, info4, info5);
+    }
 
+
+    /**
+     * 打印Annotation 信息
+     *
+     * @param annotations
+     */
     public static void printAnnotation(Annotation... annotations) {
         Arrays.stream(annotations).forEach(annotation -> {
             if (annotation == null) {
@@ -45,6 +69,7 @@ public class PrintUtil {
 
     /**
      * 打印AnnotatedType类的信息
+     *
      * @param annotatedType
      */
     public static void printAnnotatedType(AnnotatedType annotatedType) {
@@ -93,6 +118,6 @@ public class PrintUtil {
         String str = String.format("当前上面的注解有： %s", Arrays.toString(annotations));
         PrintUtil.printOneLine(str);
         Type typeInfo = annotatedType.getType();
-        PrintUtil.printOneLine("当前getType()类型： "+typeInfo.getTypeName());
+        PrintUtil.printOneLine("当前getType()类型： " + typeInfo.getTypeName());
     }
 }

@@ -1,13 +1,12 @@
-package com.xxd.reflect.basic.domain;
+package com.xxd.reflect.retrofit.component;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Target(ElementType.TYPE_USE)
+@Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface DoubleObtain {
-
-    double value();
+public @interface POST {
+    String value();
 }

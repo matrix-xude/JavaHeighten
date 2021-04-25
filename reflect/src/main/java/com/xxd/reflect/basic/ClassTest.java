@@ -1,9 +1,9 @@
-package basic;
+package com.xxd.reflect.basic;
 
-import basic.domain.IntObtain;
-import basic.domain.Ints;
-import basic.entity.ReflectEntity;
-import basic.utils.PrintUtil;
+import com.xxd.reflect.basic.domain.IntObtain;
+import com.xxd.reflect.basic.domain.Ints;
+import com.xxd.reflect.basic.entity.ReflectEntity;
+import com.xxd.reflect.basic.utils.PrintUtil;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;

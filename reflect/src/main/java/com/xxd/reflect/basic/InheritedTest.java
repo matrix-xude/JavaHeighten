@@ -1,8 +1,8 @@
-package basic;
+package com.xxd.reflect.basic;
 
-import basic.domain.DescObtain;
-import basic.entity.InheritedEntitySon;
-import basic.utils.PrintUtil;
+import com.xxd.reflect.basic.domain.DescObtain;
+import com.xxd.reflect.basic.entity.InheritedEntitySon;
+import com.xxd.reflect.basic.utils.PrintUtil;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
