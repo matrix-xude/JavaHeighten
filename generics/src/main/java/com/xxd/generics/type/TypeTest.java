@@ -46,6 +46,7 @@ public class TypeTest {
         } else if (type instanceof WildcardType) {
             WildcardType wildcardType = (WildcardType) type;
             System.out.printf("当前是WildcardType类型：%s\r\n", wildcardType.getTypeName());
+            // <? extends T>这种只能获取到上边界T，而<? super T>可同时获取到下边界T,上边界Object
             Arrays.stream(wildcardType.getLowerBounds()).forEach(TypeTest::printType);
             Arrays.stream(wildcardType.getUpperBounds()).forEach(TypeTest::printType);
         }
