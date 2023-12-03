@@ -13,9 +13,9 @@ import java.util.Arrays;
 public class GenericsTest {
 
     public static void main(String[] args) {
-        fatherClass();
+//        fatherClass();
         sonClass();
-        sonT();
+//        sonT();
     }
 
     /**

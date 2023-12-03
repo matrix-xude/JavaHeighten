@@ -21,10 +21,10 @@ public class MethodTest {
         Arrays.stream(declaredMethods).forEach(method -> {
 //            PrintUtil.printOneLine(method.getName());
             if (method.getName().equals("test")) {
-//                analysisMember(method);
+                analysisMember(method);
 //                analysisAnnotationElement(method);
 //                analysisAccessibleObject(method);
-                annotatedClass(method);
+//                annotatedClass(method);
             }
         });
     }
