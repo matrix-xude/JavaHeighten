@@ -26,9 +26,8 @@ public class StopThread {
         System.out.printf("当前线程是否被取消 -> %s\n", instance.futureTask.isCancelled());
         System.out.printf("当前线程是否结束 -> %s\n", instance.futureTask.isDone());
         System.out.printf("当前i的数值是 -> %s\n", instance.futureTask.get()); // stop()暴力结束线程导致返回一直等待
+        System.out.println("卡住后是否继续执行");  // 之后所有的代码都无法执行
 
 
     }
-
-
 }
