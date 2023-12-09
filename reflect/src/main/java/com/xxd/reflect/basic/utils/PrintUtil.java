@@ -7,6 +7,7 @@ import com.xxd.reflect.basic.domain.IntObtain;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.*;
 import java.util.Arrays;
+import java.util.function.Consumer;
 
 /**
  * 打印工具类

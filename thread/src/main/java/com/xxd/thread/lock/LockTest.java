@@ -15,7 +15,7 @@ public class LockTest {
         lockTest.mThread1.start();
 
 //        Thread.sleep(200);
-        lockTest.mThread2.interrupt();
+//        lockTest.mThread2.interrupt();
 
     }
 
@@ -33,12 +33,14 @@ public class LockTest {
 
     private final Thread mThread2 = new Thread(() -> {
         try {
-            mLock.lockInterruptibly(); // 此方法会抛出异常，可能先于 mThread1 打印，具体看interrupt()时间
+            Thread.sleep(100);
+            mLock.unlock();
+//            mLock.lockInterruptibly(); // 此方法会抛出异常，可能先于 mThread1 打印，具体看interrupt()时间
             System.out.println("Thread2拿到Lock");
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
-            mLock.unlock();
+//            mLock.unlock();
         }
     });
 }
