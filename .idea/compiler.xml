@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Gradle Imported" enabled="true">
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$PROJECT_DIR$/apt-processor/build/libs/apt-processor-1.0-SNAPSHOT.jar" />
+          <entry name="$PROJECT_DIR$/my-processor/build/libs/my-processor-1.0-SNAPSHOT.jar" />
+          <entry name="$PROJECT_DIR$/apt-annotation/build/libs/apt-annotation-1.0-SNAPSHOT.jar" />
+          <entry name="$PROJECT_DIR$/my-annotation/build/libs/my-annotation-1.0-SNAPSHOT.jar" />
+        </processorPath>
+        <module name="JavaHeighten.annotation.main" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="17" />
+  </component>
+</project>
