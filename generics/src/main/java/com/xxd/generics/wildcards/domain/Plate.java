@@ -13,7 +13,7 @@ public class Plate<T> {
         list.offer(t);
     }
 
-    public T get(int index) {
+    public T get() {
         return list.poll();
     }
 }

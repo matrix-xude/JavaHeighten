@@ -28,21 +28,21 @@ public class WildcardsEffect {
         moveAll(fruitPlate,foodPlate);
 
         // 把食物盘里的物品移动到苹果盘里,此移动会有安全问题，在编译时就不能通过了
-        // moveAll(foodPlate,applePlate); 编译错误，报红
+        // moveAll(foodPlate,applePlate);  // 编译错误，报红
     }
 
     // 把一个苹果盘子的苹果移动到另一个苹果盘子
     public static void moveApple(Plate<Apple> src, Plate<Apple> dest) {
-        dest.add(src.get(0));
+        dest.add(src.get());
     }
 
     // 把香蕉移动，水果移动等
     public static <T> void moveT(Plate<T> src, Plate<T> dest) {
-        dest.add(src.get(0));
+        dest.add(src.get());
     }
 
     // 只要符合条件的都能移动
     public static <T> void moveAll(Plate<? extends T> src, Plate<? super T> dest) {
-        dest.add(src.get(0));
+        dest.add(src.get());
     }
 }

@@ -1,8 +1,6 @@
 package com.xxd.generics.basic;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * 泛型的3处用法之二：类
@@ -27,6 +25,7 @@ public class NumberConsumer<T extends Number, K> implements IConsumer<K> {
 
     /**
      * 泛型的3处用法之三：方法 （在可见修饰符 与 返回值 之间定义方法接收的泛型）
+     *
      * @param u   实际类型参数
      * @param <U> 泛型可以多继承，但是只能继承 1个class,可以继承 n 个接口，且继承类必须写在前面
      * @return 返回自己

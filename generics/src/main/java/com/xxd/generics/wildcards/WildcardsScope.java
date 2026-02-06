@@ -12,7 +12,7 @@ import java.util.List;
  * 3种不能使用的位置
  */
 public class WildcardsScope
-//        extends SignatureFather<? extends String>  不能使用 1.超类型的类型参数（不能用在实现父类的泛型上，类似 implements IConsumer<? extends K> 是不允许的）
+//        extends SignatureFather<? extends String>  // 不能使用 1.超类型的类型参数（不能用在实现父类的泛型上，类似 implements IConsumer<? extends K> 是不允许的）
 {
 
     /**
@@ -41,8 +41,8 @@ public class WildcardsScope
 
     private void fun4(){
         List<? super Integer> list;
-//        fun2(list);    不能使用 2.泛型方法调用 （传入的参数必须必须是实例化好的）
-//        list = new List<? super Integer>(); 不能使用 3.泛型类实例创建 ( ? 通配符不能用作实例化，也就是 new 出来的必须是实际参数泛型类).
+//        fun2(list);   // 不能使用 2.泛型方法调用 （传入的参数必须必须是实例化好的）
+//        list = new List<? super Integer>(); // 不能使用 3.泛型类实例创建 ( ? 通配符不能用作实例化，也就是 new 出来的必须是实际参数泛型类).
         Integer[] integers = new Integer[2];
     }
 

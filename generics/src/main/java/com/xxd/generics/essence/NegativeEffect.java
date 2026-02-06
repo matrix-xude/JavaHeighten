@@ -49,7 +49,7 @@ public class NegativeEffect<T> {
     public void negative6() {
 
         List<Integer>[] arr = null;
-        // arr = new ArrayList<Integer>[2]; // 报错，Generic array creation
+        // arr = new ArrayList<Integer>[2]; // 报错，Generic array creation not allowed
 
         // 假设泛型数组存在，由于数组满足协变，可以转换为Object[]，这样就出现了安全问题
         Object[] objects = arr;
