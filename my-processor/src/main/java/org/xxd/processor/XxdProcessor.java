@@ -35,7 +35,9 @@ public class XxdProcessor extends AbstractProcessor {
                 printMessage(String.format("当前注解的位置=%s,名字=%s,XxdType=%s,XxdColor=%s",e.getKind(),simpleName,annotation1,annotation2));
             });
         });
-        return false;
+
+        // true: 表示已经处理过 @SupportedAnnotationTypes 上标记过的注解，其它Processor再也拿不到该注解了。 false: 该注解还会被其他Processor拿到。
+        return true;
     }
 
     @Override
