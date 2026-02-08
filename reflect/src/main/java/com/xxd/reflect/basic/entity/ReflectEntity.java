@@ -75,5 +75,5 @@ public class ReflectEntity<@DescObtain(desc = "装逼如风，常伴我身，T")
 
     }
 
-    public static void test(@IntObtain(110) @DoubleObtain(3.14) int a) { }
+    public void test(@IntObtain(110) @DoubleObtain(3.14) int a) { }
 }

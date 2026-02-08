@@ -21,10 +21,10 @@ public class MethodTest {
         Arrays.stream(declaredMethods).forEach(method -> {
 //            PrintUtil.printOneLine(method.getName());
             if (method.getName().equals("test")) {
-                analysisMember(method);
+//                analysisMember(method);
 //                analysisAnnotationElement(method);
 //                analysisAccessibleObject(method);
-//                annotatedClass(method);
+                annotatedClass(method);
             }
         });
     }
@@ -111,7 +111,7 @@ public class MethodTest {
     private static void annotatedClass(Method method) {
         // 打印普通注解 结论：找不到 ElementType.TYPE_USE 类型的注解
         Annotation[][] parameterAnnotations = method.getParameterAnnotations();
-        Arrays.stream(parameterAnnotations).forEach(annotations -> PrintUtil.printOneLine(Arrays.toString(annotations)));
+        Arrays.stream(parameterAnnotations).forEach(annotations -> PrintUtil.printInfos(Arrays.toString(annotations)));
 
         // AnnotatedType类找不到 非ElementType.TYPE_USE 注解
         AnnotatedType[] annotatedParameterTypes = method.getAnnotatedParameterTypes();
@@ -119,7 +119,7 @@ public class MethodTest {
                 .filter(annotatedType -> annotatedType.getAnnotations().length <= 4)
                 .forEach(MethodTest::analysisAnnotatedType);
 
-//         getAnnotatedReceiverType() 方法到底做了什么，返回了该方法所在的类,static方法返回null
+//         getAnnotatedReceiverType() 方法到底做了什么，第一个参数传入this,具体问gemini,static方法返回null
         AnnotatedType annotatedReceiverType = method.getAnnotatedReceiverType();
         if (annotatedReceiverType != null)
             analysisAnnotatedType(annotatedReceiverType);

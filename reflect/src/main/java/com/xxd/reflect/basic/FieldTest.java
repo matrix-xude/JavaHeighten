@@ -18,10 +18,10 @@ public class FieldTest {
     public static void main(String[] args) throws NoSuchFieldException {
         ReflectEntity<String> entity = new ReflectEntity<>();
         Field field = entity.getClass().getDeclaredField("t");
-//        analysisMember(field);
-//        analysisAnnotationElement(field);
-//        analysisAccessibleObject(field);
-//        analysisGenericDeclaration(field,entity.getClass());
+        analysisMember(field);
+        analysisAnnotationElement(field);
+        analysisAccessibleObject(field);
+        analysisGenericDeclaration(field,entity.getClass());
         annotatedClass(entity.getClass());
     }
 

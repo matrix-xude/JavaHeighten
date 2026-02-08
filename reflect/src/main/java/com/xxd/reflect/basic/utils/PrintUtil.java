@@ -107,7 +107,7 @@ public class PrintUtil {
             Arrays.stream(arguments).forEach(PrintUtil::printAnnotatedType);
             Arrays.stream(arguments2).forEach(PrintUtil::printAnnotatedType);
         } else {
-            String info = String.format(format, "未知类型", annotatedType);
+            String info = String.format(format, "未知，动态获取为"+annotatedType.getType(), annotatedType);
             printTypeInfo(annotatedType, info);
         }
 

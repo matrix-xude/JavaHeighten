@@ -21,9 +21,9 @@ public class ClassTest {
         Class<? extends ReflectEntity> aClass = entity.getClass();
 
 //        analysisMember(aClass);
-//        analysisAnnotationElement(aClass);
+        analysisAnnotationElement(aClass);
 //        analysisAccessibleObject(aClass);
-        analysisGenericDeclaration(aClass);
+//        analysisGenericDeclaration(aClass);
     }
 
     // 分析Member接口的方法
@@ -51,14 +51,14 @@ public class ClassTest {
         boolean present1 = aClass.isAnnotationPresent(IntObtain.class);
         boolean present2 = aClass.isAnnotationPresent(Ints.class);
 
-        IntObtain a1 = aClass.getAnnotation(IntObtain.class);
+        IntObtain a1 = aClass.getAnnotation(IntObtain.class); // 1个时，能获取到
         IntObtain a2 = aClass.getDeclaredAnnotation(IntObtain.class);
-        IntObtain[] arr1 = aClass.getAnnotationsByType(IntObtain.class);
+        IntObtain[] arr1 = aClass.getAnnotationsByType(IntObtain.class); // 1个时，该方法返回null
         IntObtain[] arr2 = aClass.getDeclaredAnnotationsByType(IntObtain.class);
 
-        Ints a3 = aClass.getAnnotation(Ints.class);
+        Ints a3 = aClass.getAnnotation(Ints.class); // 2个及以上返回null
         Ints a4 = aClass.getDeclaredAnnotation(Ints.class);
-        Ints[] arr3 = aClass.getAnnotationsByType(Ints.class);
+        Ints[] arr3 = aClass.getAnnotationsByType(Ints.class); // 2个及以上能获取到
         Ints[] arr4 = aClass.getDeclaredAnnotationsByType(Ints.class);
 
         Annotation[] arr5 = aClass.getAnnotations();

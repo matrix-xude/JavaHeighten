@@ -16,7 +16,10 @@ public class InheritedTest {
     public static void main(String[] args) throws NoSuchMethodException, NoSuchFieldException {
         Class<InheritedEntitySon> aClass = InheritedEntitySon.class;
 
-        fun2(aClass);
+//        fun1(aClass);
+//        fun2(aClass);
+//        fun3(aClass);
+        fun4(aClass);
     }
 
     private static void fun1(Class<?> aClass){
@@ -35,14 +38,14 @@ public class InheritedTest {
     }
 
     private static void fun3(Class<?> aClass) throws NoSuchMethodException {
-        // 测试方法，结论：不能继承
+        // 测试方法，结论：不能继承(覆写后不能继承，如果不覆写，可以找到)
         Method method = aClass.getMethod("fun1");
         PrintUtil.printAnnotation(method.getAnnotations());
         PrintUtil.printAnnotation(method.getDeclaredAnnotations());
     }
 
     private static void fun4(Class<?> aClass) throws NoSuchFieldException {
-        // 测试Filed，结论：不能继承
+        // 测试Filed，结论：不能继承(覆写后不能继承，如果不覆写，可以找到)
         Field a = aClass.getField("a");
         PrintUtil.printAnnotation(a.getAnnotations());
         PrintUtil.printAnnotation(a.getDeclaredAnnotations());
