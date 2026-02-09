@@ -18,7 +18,7 @@ public class GsonConstructorTest {
 
     public static void main(String[] args) {
 //        reflect();
-//        serializableObject();
+        serializableObject();
         deserializableObject();
     }
 

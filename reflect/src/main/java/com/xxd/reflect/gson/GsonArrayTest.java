@@ -6,6 +6,9 @@ import com.xxd.reflect.basic.utils.PrintUtil;
 import com.xxd.reflect.gson.domain.ArrayEntity;
 import com.xxd.reflect.gson.domain.NoNullParameterEntity;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 /**
  * 通过Gson了解反射中的序列化、反序列化 Array 问题
  */
@@ -15,7 +18,21 @@ public class GsonArrayTest {
 
     public static void main(String[] args) {
 //        serializableArray();
-        deserializableArray();
+//        deserializableArray();
+        reflectCreateArray();
+    }
+
+    /**
+     * 通过反射创建数组
+     */
+    private static void reflectCreateArray() {
+        // 反射创建数组的核心类是 Array
+        int[][] reflectArray = (int[][]) Array.newInstance(int[].class, 2);
+        // 可以通过反射设置数据
+        Array.set(reflectArray, 0, new int[]{1, 2, 3});
+        Array.set(reflectArray, 1, new int[]{4, 5, 6});
+
+        PrintUtil.printInfos(gson.toJson(reflectArray));
     }
 
     /**
@@ -48,6 +65,7 @@ public class GsonArrayTest {
         String json = "{\"arr\":[[312,64,13],[3,7,1]],\"objects\":[1,\"agc\",{\"i\":11,\"s\":\"aaa\",\"doubles\":[3.2,1.4]}]}";
 
         ArrayEntity entity = gson.fromJson(json, ArrayEntity.class);
+
         LinkedTreeMap linkedTreeMap = (LinkedTreeMap) entity.objects[2];
         double i = (double) linkedTreeMap.get("i");
         PrintUtil.printInfos(entity.toString());

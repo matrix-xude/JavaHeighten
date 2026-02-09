@@ -7,7 +7,7 @@ import com.xxd.reflect.gson.domain.IGun;
 import com.xxd.reflect.gson.domain.MyGun;
 
 /**
- * 通过Gson了解反射中的序列化、反序列化 Array 问题
+ * 通过Gson了解反射中的序列化、反序列化 接口 问题
  */
 public class GsonInterfaceTest {
 
@@ -32,6 +32,7 @@ public class GsonInterfaceTest {
 
     /**
      * 接口反序列化测试
+     * 报错：Interface can't be instantiated!
      */
     private static void deserializableInterface() {
         String json = "{\"i\":123,\"s\":\"我的枪\"}";

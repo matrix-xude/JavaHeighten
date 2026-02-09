@@ -30,7 +30,8 @@ public class ArrayTest {
         Object o1 = Array.newInstance(originClass, 2, 3); // 等于创建了一个 Objet[2][3]的数组
 
         // == 成立，2种等价，说明了数组中元素Class相同，就是同一种类型
-        PrintUtil.printInfos("2种不同的数组创建类型是否等价 ： " + (o.getClass() == o1.getClass()));
+        String info = String.format("o的class ：%s ; o1的class: %s", o.getClass(), o1.getClass());
+        PrintUtil.printInfos(info, "2种不同的数组创建类型是否等价 ： " + (o.getClass() == o1.getClass()));
 
         try {
             // 通过 forName 和 aClass自身比较，发现创建的数组是一样的

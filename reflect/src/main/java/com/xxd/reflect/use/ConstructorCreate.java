@@ -26,8 +26,8 @@ public class ConstructorCreate {
     private void createInstance() {
 
 //        createByClass();
-        createByConstructor();
-//        createByConstructor2();
+//        createByConstructor();
+        createByConstructor2();
 
     }
 
@@ -127,10 +127,7 @@ public class ConstructorCreate {
 
         Arrays.stream(declaredConstructors)
                 .map(Constructor::getParameterTypes)
-                .flatMap((Function<Class<?>[], Stream<Class<?>>>) Arrays::stream)
-                .forEach(PrintUtil::printClass);
-
+                .forEach(it -> PrintUtil.printInfos(Arrays.deepToString(it)));
     }
-
 
 }

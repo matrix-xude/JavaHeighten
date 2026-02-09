@@ -13,8 +13,8 @@ import java.util.Arrays;
 public class GenericsTest {
 
     public static void main(String[] args) {
-//        fatherClass();
-        sonClass();
+        fatherClass();
+//        sonClass();
 //        sonT();
     }
 

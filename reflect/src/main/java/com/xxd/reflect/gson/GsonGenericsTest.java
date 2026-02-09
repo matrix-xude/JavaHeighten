@@ -47,9 +47,9 @@ public class GsonGenericsTest {
         StringT stringT = gson.fromJson(json, StringT.class);
         PrintUtil.printInfos(stringT.toString());
 
-        IT classT = gson.fromJson(json, IT.class);
-        PrintUtil.printInfos(classT.toString());
-        Object data = classT.getData();
+//        IT classT = gson.fromJson(json, IT.class);
+//        PrintUtil.printInfos(classT.toString());
+//        Object data = classT.getData();
     }
 
     /**
