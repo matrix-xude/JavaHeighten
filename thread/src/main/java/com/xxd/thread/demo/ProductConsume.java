@@ -1,5 +1,6 @@
 package com.xxd.thread.demo;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
@@ -18,7 +19,7 @@ public class ProductConsume {
     // 需要不同线程公用的资源
     private final List<String> mList = new LinkedList<>();
     // 最大存储数量
-    private static final int MAX_COUNT = 50;
+    private static final int MAX_COUNT = 3;
 
     private Thread mProductThread = new Thread() {
         @Override
@@ -28,21 +29,20 @@ public class ProductConsume {
                 try {
                     Thread.sleep(new Random().nextInt(1000));
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    throw new RuntimeException(e);
                 }
                 synchronized (mList) {
-                    if (mList.size() < MAX_COUNT) {
+                    try {
+                        while (mList.size() == MAX_COUNT) {
+                            System.out.println("当前队列已经满了：" + Arrays.toString(mList.toArray()));
+                            mList.wait();
+                        }
                         String productName = String.format("特斯拉%s号", index++);
                         mList.add(productName);
                         System.out.printf("生产出了一个产品，名字 -> %s\n", productName);
                         mList.notifyAll();
-                    } else {
-                        mList.notifyAll();
-                        try {
-                            mList.wait();
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 }
             }
@@ -59,17 +59,16 @@ public class ProductConsume {
                     e.printStackTrace();
                 }
                 synchronized (mList) {
-                    if (mList.size() > 0) {
+                    try {
+                        while (mList.isEmpty()) {
+                            System.out.println("当前队列为0");
+                            mList.wait();
+                        }
                         String remove = mList.remove(0);
                         System.out.printf("消费了，名字: %s\n", remove);
                         mList.notifyAll();
-                    } else {
-                        mList.notifyAll();
-                        try {
-                            mList.wait();
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 }
             }

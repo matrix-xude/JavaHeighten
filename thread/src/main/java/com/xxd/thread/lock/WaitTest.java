@@ -12,7 +12,7 @@ public class WaitTest {
 
     private final Thread thread1 = new Thread(() -> {
         synchronized (object) {
-            System.out.printf("%s 被执行到了\r\n", Thread.currentThread().getName());
+            System.out.printf("%s 拿到锁之后，while循环之前\r\n", Thread.currentThread().getName());
             while (true) {
                 try {
                     System.out.printf("%s while(true)循环中……\r\n",Thread.currentThread().getName());
@@ -27,10 +27,12 @@ public class WaitTest {
 
     private final Thread thread2 = new Thread(() -> {
         synchronized (object) {
-            System.out.printf("%s 被执行到了\r\n", Thread.currentThread().getName());
+            System.out.printf("%s 拿到了锁\r\n", Thread.currentThread().getName());
+            object.notify();
             try {
                 object.notifyAll();  // 这里唤醒了thread1，进入就绪状态，但是不释放琐
-                System.out.printf("%s while(true)循环中……\r\n", Thread.currentThread().getName());
+                Thread.sleep(500); // 这里sleep可以测试，notify是否释放了锁，看打印log的顺序即可
+                System.out.printf("%s sleep 500ms, notifyAll之后\r\n", Thread.currentThread().getName());
                 object.wait();  // 这里才释放琐
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
