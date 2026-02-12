@@ -3,7 +3,7 @@ package com.xxd.thread.threadlocal;
 public class ThreadLocalBase {
 
     // 需要初始化，否则set之前get值为null
-    private ThreadLocal<String> threadLocal1 = new ThreadLocal<>(){
+    private ThreadLocal<String> threadLocal1 = new ThreadLocal<>() {
         @Override
         protected String initialValue() {
             return super.initialValue();
@@ -25,12 +25,13 @@ public class ThreadLocalBase {
         System.out.println(base.threadLocal1.get());  // 打印main，其它线程改变与本线程无关
     }
 
-    private final Thread thread1 = new Thread(()->{
+    private final Thread thread1 = new Thread(() -> {
         threadLocal1.set(Thread.currentThread().getName());
-    });
+        System.out.println("线程1中打印ThreadLocal: " + threadLocal1.get());
+    }, "线程1");
 
-    private final Thread thread2 = new Thread(()->{
+    private final Thread thread2 = new Thread(() -> {
         threadLocal1.set(Thread.currentThread().getName());
-    });
+    }, "线程2");
 
 }

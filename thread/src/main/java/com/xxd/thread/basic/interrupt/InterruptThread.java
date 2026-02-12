@@ -20,10 +20,14 @@ public class InterruptThread {
 
         Thread thread = new Thread(instance.futureTask);
         thread.start();
+        // 如果你在线程 sleep() 或 wait() 时调用 interrupt()，这些方法会抛出 InterruptedException。
+        //注意： 当这个异常被抛出时，JVM 会自动清除中断标志位。
         thread.interrupt();
         Thread.sleep(500);  // 这等待是为了让thread清除中断标记
 
         // 中断标志判断false，是因为阻塞被检测到了，清除了中断标记
+        System.out.printf("当前线程是否被interrupt -> %s\n", thread.isInterrupted());
+        System.out.printf("当前线程是否被interrupt -> %s\n", thread.isInterrupted());
         System.out.printf("当前线程是否被interrupt -> %s\n", thread.isInterrupted());
 
         System.out.printf("当前线程是否被取消 -> %s\n", instance.futureTask.isCancelled());
