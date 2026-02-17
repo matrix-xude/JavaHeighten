@@ -1,12 +1,14 @@
 package com.xxd.thread.pool;
 
+import java.util.List;
 import java.util.concurrent.*;
 
 public class PoolTest {
 
     public static void main(String[] args) {
         PoolTest poolTest = new PoolTest();
-        poolTest.createThreadSequence();
+//        poolTest.createThreadSequence();
+        poolTest.shutdownTest();
 //        poolTest.createPool();
     }
 
@@ -41,7 +43,8 @@ public class PoolTest {
             }
         }
 
-        // 这里不shutdown，线程会一直阻塞
+        // 正在执行的：继续执行，直到完成
+        // 不再接受新任务，如果此时你再调用 execute()，会触发拒绝策略
         executorService.shutdown();
         // isShutdown()在shutdown()被调用后，会立马返回true
         System.out.printf("%s isShutdown()=%s\r\n", Thread.currentThread().getName(), executorService.isShutdown());
@@ -59,13 +62,16 @@ public class PoolTest {
                 try {
                     Thread.sleep(100);
                 } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
+//                    throw new RuntimeException(e);
+                    e.printStackTrace();
                 }
             });
         }
 
-        // 这里不shutdown，线程会一直阻塞
-        executorService.shutdown();
+        // 正在执行的：尝试发送 interrupt() 中断信号
+        // 队列中排队的：全部丢弃，不再执行
+        // 返回值可以拿到丢弃的队列中的任务
+        List<Runnable> runnables = executorService.shutdownNow();
         // isShutdown()在shutdown()被调用后，会立马返回true
         System.out.printf("%s isShutdown()=%s\r\n", Thread.currentThread().getName(), executorService.isShutdown());
         // isTerminated()在线程池所有task执行完之后才会返回true
